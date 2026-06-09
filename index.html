@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Fashion Creator</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="主导航">
+        <div class="brand-block">
+          <div class="brand-mark" aria-hidden="true">AFC</div>
+          <div>
+            <h1>AI Fashion Creator</h1>
+            <p>服装产品开发协同平台</p>
+          </div>
+        </div>
+
+        <nav class="nav-list">
+          <button class="nav-item active" data-view="workspace">工作台</button>
+          <button class="nav-item" data-view="resources">资源库</button>
+          <button class="nav-item" data-view="pipeline">生产协同</button>
+          <button class="nav-item" data-view="insights">复盘看板</button>
+        </nav>
+
+        <div class="partner-panel">
+          <span class="eyebrow">可信资源</span>
+          <strong>面辅料、快反工厂、第三方质检</strong>
+          <p>将创意、开发资料和供应链协作放在同一个闭环里。</p>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <div>
+            <span class="eyebrow">一站式 AI 服装产品开发</span>
+            <h2 id="viewTitle">全流程工作台</h2>
+          </div>
+          <div class="top-actions">
+            <button class="ghost-button" id="loadDemoButton">载入示例</button>
+            <button class="primary-button" id="exportButton">导出开发包</button>
+          </div>
+        </header>
+
+        <section class="metric-row" aria-label="平台指标">
+          <article>
+            <span>开发阶段</span>
+            <strong id="metricStage">8</strong>
+            <small>从机会到复盘</small>
+          </article>
+          <article>
+            <span>推荐资源</span>
+            <strong id="metricResources">0</strong>
+            <small>面辅料与服务商</small>
+          </article>
+          <article>
+            <span>预计周期</span>
+            <strong id="metricLeadTime">0 天</strong>
+            <small>样衣到小单</small>
+          </article>
+          <article>
+            <span>落地状态</span>
+            <strong id="metricStatus">待生成</strong>
+            <small>可生产资料包</small>
+          </article>
+        </section>
+
+        <section class="view view-active" id="workspaceView" aria-labelledby="viewTitle">
+          <div class="workspace-grid">
+            <section class="form-panel" aria-label="新建服装项目">
+              <div class="section-heading">
+                <span class="eyebrow">Project Brief</span>
+                <h3>新建服装开发项目</h3>
+              </div>
+
+              <form id="briefForm" class="brief-form">
+                <label>
+                  产品类型
+                  <select name="category">
+                    <option value="通勤外套">通勤外套</option>
+                    <option value="音乐节上衣">音乐节上衣</option>
+                    <option value="户外机能夹克">户外机能夹克</option>
+                    <option value="跨境女装连衣裙">跨境女装连衣裙</option>
+                    <option value="亲肤针织套装">亲肤针织套装</option>
+                  </select>
+                </label>
+
+                <label>
+                  目标人群
+                  <select name="audience">
+                    <option value="25-35 岁通勤女性">25-35 岁通勤女性</option>
+                    <option value="Gen Z 内容创作者">Gen Z 内容创作者</option>
+                    <option value="跨境电商买家">跨境电商买家</option>
+                    <option value="成长型设计师客群">成长型设计师客群</option>
+                  </select>
+                </label>
+
+                <label>
+                  风格方向
+                  <select name="style">
+                    <option value="轻商务极简">轻商务极简</option>
+                    <option value="新中式通勤">新中式通勤</option>
+                    <option value="复古运动">复古运动</option>
+                    <option value="甜酷派对">甜酷派对</option>
+                    <option value="户外城市机能">户外城市机能</option>
+                  </select>
+                </label>
+
+                <label>
+                  销售渠道
+                  <select name="channel">
+                    <option value="小红书种草与私域预售">小红书种草与私域预售</option>
+                    <option value="TikTok Shop 跨境测试">TikTok Shop 跨境测试</option>
+                    <option value="独立设计师买手店">独立设计师买手店</option>
+                    <option value="品牌小单快反">品牌小单快反</option>
+                  </select>
+                </label>
+
+                <div class="split-fields">
+                  <label>
+                    价格带
+                    <select name="priceTier">
+                      <option value="199-399 元">199-399 元</option>
+                      <option value="399-699 元">399-699 元</option>
+                      <option value="699-1299 元">699-1299 元</option>
+                    </select>
+                  </label>
+
+                  <label>
+                    试产数量
+                    <input name="quantity" type="number" min="30" max="1000" value="120" />
+                  </label>
+                </div>
+
+                <div class="split-fields">
+                  <label>
+                    季节
+                    <select name="season">
+                      <option value="秋冬">秋冬</option>
+                      <option value="春夏">春夏</option>
+                      <option value="四季">四季</option>
+                    </select>
+                  </label>
+
+                  <label>
+                    生产区域
+                    <select name="region">
+                      <option value="长三角快反供应链">长三角快反供应链</option>
+                      <option value="珠三角跨境供应链">珠三角跨境供应链</option>
+                      <option value="成渝女装供应链">成渝女装供应链</option>
+                    </select>
+                  </label>
+                </div>
+
+                <label>
+                  创意描述
+                  <textarea name="idea" rows="4">希望做一件适合城市通勤、能覆盖早晚温差、上镜但不过度夸张的外套。</textarea>
+                </label>
+
+                <button class="primary-button wide-button" type="submit">生成 AI 开发方案</button>
+              </form>
+            </section>
+
+            <section class="project-panel" aria-label="AI 生成方案">
+              <div class="project-header">
+                <div>
+                  <span class="eyebrow">Active Project</span>
+                  <h3 id="projectName">等待生成项目</h3>
+                </div>
+                <span class="status-pill" id="projectStatus">Brief 未完成</span>
+              </div>
+
+              <div class="stage-tabs" id="stageTabs" aria-label="开发阶段"></div>
+              <div class="stage-content" id="stageContent"></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="view" id="resourcesView" aria-labelledby="resourcesTitle">
+          <div class="section-heading">
+            <span class="eyebrow">Resource Hub</span>
+            <h3 id="resourcesTitle">服装资源整合库</h3>
+          </div>
+          <div class="resource-filters" id="resourceFilters"></div>
+          <div class="resource-grid" id="resourceGrid"></div>
+        </section>
+
+        <section class="view" id="pipelineView" aria-labelledby="pipelineTitle">
+          <div class="section-heading">
+            <span class="eyebrow">Collaboration</span>
+            <h3 id="pipelineTitle">打样、生产与质检协同</h3>
+          </div>
+          <div class="timeline" id="pipelineTimeline"></div>
+        </section>
+
+        <section class="view" id="insightsView" aria-labelledby="insightsTitle">
+          <div class="section-heading">
+            <span class="eyebrow">Market Feedback</span>
+            <h3 id="insightsTitle">销售反馈与复盘看板</h3>
+          </div>
+          <div class="insight-layout" id="insightLayout"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="src/app.js" defer></script>
+  </body>
+</html>
