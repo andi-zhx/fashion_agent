@@ -1,0 +1,17 @@
+{
+  "name": "ai-fashion-creator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI Fashion Creator 一站式 AI 服装产品开发协同平台 MVP",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "fashion",
+    "ai",
+    "supply-chain",
+    "tech-pack",
+    "quality-control"
+  ],
+  "license": "MIT"
+}
